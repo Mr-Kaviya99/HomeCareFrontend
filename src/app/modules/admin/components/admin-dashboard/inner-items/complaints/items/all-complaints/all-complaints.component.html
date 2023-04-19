@@ -1,0 +1,59 @@
+<div class="list-outer">
+  <div class="table-outer">
+    <table class="table">
+      <thead>
+      <tr>
+        <!--        <td>Configuration</td>-->
+        <td>User Id</td>
+        <td>Gender</td>
+        <td>NIC</td>
+        <td>Latitude</td>
+        <td>Longitude</td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let c of allComplaints">
+        <!--<td class="table-col">
+          <div class="td-inner">
+            &lt;!&ndash;            <div class="button-outer">&ndash;&gt;
+            &lt;!&ndash;              <button class="delete-button button" (click)="deletePopUp(lang.languageId)">&ndash;&gt;
+            &lt;!&ndash;                &lt;!&ndash;                (click)="deletePopUp(employee.employeeId)">&ndash;&gt;&ndash;&gt;
+            &lt;!&ndash;                <mat-icon>delete_sweep</mat-icon>&ndash;&gt;
+            &lt;!&ndash;              </button>&ndash;&gt;
+            &lt;!&ndash;              <button class="update-button button" (click)="callDecisionMaker(lang.languageId)">&ndash;&gt;
+            &lt;!&ndash;                <mat-icon>edit</mat-icon>&ndash;&gt;
+            &lt;!&ndash;              </button>&ndash;&gt;
+            &lt;!&ndash;            </div>&ndash;&gt;
+          </div>
+        </td>-->
+        <td class="table-col">
+          <div class="td-inner">
+            {{c!.user_id}}
+          </div>
+        </td>
+        <td class="table-col">
+          <div class="td-inner">
+            {{c!.gender}}
+          </div>
+        </td>
+        <td class="table-col">
+          <div class="td-inner">
+            {{c!.nic}}
+          </div>
+        </td>
+        <td class="table-col">
+          <div class="td-inner">
+            {{c!.latitude}}
+          </div>
+        </td>
+        <td class="table-col">
+          <div class="td-inner">
+            {{c!.longitude}}
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
