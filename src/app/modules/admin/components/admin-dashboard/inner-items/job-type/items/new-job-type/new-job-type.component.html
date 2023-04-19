@@ -1,0 +1,25 @@
+<div class="new-language-outer">
+  <form #formDirective="ngForm" [formGroup]="newJobTypeForm" (ngSubmit)="newJobTypeFormSubmit(formDirective)">
+    <div class="row row-outer">
+      <div class="col-12 col-sm-6 col-lg-5 column">
+        <mat-form-field appearance="outline" class="example-full-width">
+          <mat-label>Job Type Name</mat-label>
+          <input matInput formControlName="typeName">
+        </mat-form-field>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-7 column">
+        <mat-form-field appearance="outline" class="example-full-width">
+          <mat-label>Job Type Image Link</mat-label>
+          <input matInput formControlName="typeImage">
+        </mat-form-field>
+      </div>
+      <div class="col-12 column">
+        <div class="submit-button-outer">
+          <button mat-flat-button [disabled]="newJobTypeForm.invalid" class="submit-button" type="submit"
+          >Submit
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
