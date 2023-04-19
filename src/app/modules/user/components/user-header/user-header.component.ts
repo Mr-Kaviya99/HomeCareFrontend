@@ -26,10 +26,6 @@ export class UserHeaderComponent implements OnInit {
     this.navSliderState = !this.navSliderState;
   }
 
-  inquiryPopUp($event: MouseEvent) {
-
-  }
-
   complaintPopUp() {
     this.manageNavBar();
     const popup = this.matDialog.open(UserComplaintPopUpComponent, {
@@ -44,8 +40,11 @@ export class UserHeaderComponent implements OnInit {
   }
 
   logOut() {
-    this.manageNavBar();
     this.cookieManager.logout()
     this.router.navigateByUrl('/security/login');
+  }
+
+  login($event: MouseEvent) {
+    this.router.navigateByUrl('/trade-person/dashboard');
   }
 }

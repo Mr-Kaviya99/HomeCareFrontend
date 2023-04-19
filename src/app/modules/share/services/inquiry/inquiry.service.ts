@@ -11,11 +11,10 @@ export class InquiryService {
 
   constructor(
     private http: HttpClient,
-    private cookieManager: CookieManagerService,
   ) {
   }
 
-  saveInquiry() {
-    return this.http.post(this.url + '' , {})
+    saveInquiry(userId: any, tradePersonId:any, selectedJobTypeId: any) {
+    return this.http.post(this.url + 'serviceRequest' , {})
   }
 }

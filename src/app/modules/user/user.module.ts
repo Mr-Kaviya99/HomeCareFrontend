@@ -18,6 +18,9 @@ import {UserComplaintPopUpComponent} from './components/user-complaint-pop-up/us
 import {AgmCoreModule} from "@agm/core";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatTooltipModule} from "@angular/material/tooltip";
+import {MatSelectModule} from "@angular/material/select";
+import {MatInputModule} from "@angular/material/input";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -45,6 +48,10 @@ import {MatTooltipModule} from "@angular/material/tooltip";
     }),
     MatFormFieldModule,
     MatTooltipModule,
+    MatSelectModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class UserModule {

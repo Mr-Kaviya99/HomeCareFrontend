@@ -17,8 +17,7 @@
           <mat-form-field appearance="outline" class="example-full-width">
             <mat-label>Job Type</mat-label>
             <mat-select formControlName="jobType">
-              <mat-option value="false">Non-Employee</mat-option>
-              <mat-option value="true">Employee</mat-option>
+              <mat-option *ngFor="let jt of allJobTypes" [value]="jt?.id">{{jt?.jobType}}</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
@@ -69,7 +68,7 @@
           <div class="button-outer">
             <button mat-raised-button (click)="clearForm(f)" class="cancel-button">Clear the form</button>
             <button mat-raised-button
-                    class="next-button" routerLink="/trade-person/dashboard">
+                    class="next-button" (click)="applyTradePerson(f)">
               Submit Data
             </button>
           </div>

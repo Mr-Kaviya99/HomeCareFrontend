@@ -5,6 +5,7 @@ import {TradePersonService} from "../../../../../share/services/trade-person/tra
 import {InquiryService} from "../../../../../share/services/inquiry/inquiry.service";
 import {SnackBarService} from "../../../../../share/services/snack-bar/snack-bar.service";
 import {LocationService} from "../../../../../share/services/locaion/location.service";
+import {UserService} from "../../../../../share/services/user/user.service";
 
 @Component({
   selector: 'app-get-hired',
@@ -12,6 +13,8 @@ import {LocationService} from "../../../../../share/services/locaion/location.se
   styleUrls: ['./get-hired.component.scss']
 })
 export class GetHiredComponent implements OnInit {
+  userId: any;
+  userDetails: any;
 
   selectedJobTypeId: any;
   latitude = 51.55633890314539;
@@ -57,32 +60,29 @@ export class GetHiredComponent implements OnInit {
     private inquiryService: InquiryService,
     private loadingService: LoadingService,
     private locationService: LocationService,
+    private userService: UserService,
     private snackBarService: SnackBarService
   ) {
   }
 
   ngOnInit(): void {
-    this.selectedJobTypeId = this.data;
+    this.selectedJobTypeId = this.data?.id;
 
-    /////////////////////////
 
     this.locationService.getPosition().then(pos => {
       this.userCurrentLatitude = pos.lat;
       this.userCurrentLongitude = pos.lng;
     });
 
-    ////////////////////////////
+    this.loadTradePersonsByJobTypeIdAndLngAndLat();
+    this.loadUserData();
 
-    this.loadTradePersonsByJobTypeIdAndLngAndLat()
   }
 
   loadTradePersonsByJobTypeIdAndLngAndLat() {
-    this.loadingService.mainLoader.next(true);
-    this.tradePersonService.getTradePersonsByJobTypeAndLngAndLat(this.selectedJobTypeId,this.userCurrentLatitude,this.userCurrentLongitude).subscribe(response => {
+    this.tradePersonService.getTradePersonsByJobTypeAndLngAndLat(this.selectedJobTypeId, this.latitude, this.longitude).subscribe(response => {
       this.tradePersonList = response;
-      this.loadingService.mainLoader.next(false);
     }, error => {
-      this.loadingService.mainLoader.next(false);
       return;
     })
   }
@@ -92,14 +92,11 @@ export class GetHiredComponent implements OnInit {
   }
 
   submitRequest() {
-    this.loadingService.mainLoader.next(true);
-    this.inquiryService.saveInquiry().subscribe(response => {
+    this.inquiryService.saveInquiry(this.userId, this.selectedTradePerson.id, this.selectedJobTypeId).subscribe(response => {
       this.tradePersonList = response;
       this.snackBarService.openSuccessSnackBar('Success', 'close')
-      this.loadingService.mainLoader.next(false);
     }, error => {
       this.snackBarService.openErrorSnackBar('Something went wrong!', 'close')
-      this.loadingService.mainLoader.next(false);
       return;
     })
   }
@@ -113,5 +110,14 @@ export class GetHiredComponent implements OnInit {
     this.latitude = event.coords.lat;
     this.longitude = event.coords.lng;
     this.locationChosen = true;
+  }
+
+  loadUserData() {
+    this.userService.getUserData().subscribe(response => {
+      this.userId = response.data.user_id;
+      this.userDetails = response.data;
+    }, error => {
+      this.snackBarService.openErrorSnackBar('Something went wrong!', 'Close');
+    })
   }
 }

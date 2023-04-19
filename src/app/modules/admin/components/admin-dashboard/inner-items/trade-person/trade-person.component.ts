@@ -11,7 +11,7 @@ export class TradePersonComponent implements OnInit {
     {
       label: 'Trade Person Lists',
       icon: '',
-      route: '/admin/dashboard/job-type/all'
+      route: '/admin/dashboard/trade-person/all'
     },
   ];
 

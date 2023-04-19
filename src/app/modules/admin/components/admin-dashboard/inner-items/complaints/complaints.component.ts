@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {TabItem} from "../../../../../share/dto/TabItem";
 
 @Component({
   selector: 'app-complaints',
@@ -7,7 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ComplaintsComponent implements OnInit {
 
-  constructor() { }
+  tabs: TabItem[] = [
+    {
+      label: 'Complaints Lists',
+      icon: '',
+      route: '/admin/dashboard/complaints/all'
+    },
+  ];
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

@@ -18,7 +18,7 @@ export class JobTypeService {
   }
 
   getAllJobTypes(): Observable<any> {
-    return this.http.get(this.url + '')
+    return this.http.get<any>(this.url + 'jobType')
   }
 
   newJobType(typeName: string, typeImage: string): Observable<any> {

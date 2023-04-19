@@ -3,24 +3,32 @@
     <mat-icon class="close-icon" (click)="close()">close</mat-icon>
     <h2>Any Complaint?</h2>
     <div id="error_message_complaint"></div>
-    <form id="myComplaintForm" onsubmit="return validate();">
+    <form action="" [formGroup]="complaintForm" #f="ngForm">
       <div class="input_field">
-        <label for="jobType">JobType</label>
-        <select id="jobType">
-          <option *ngFor="let jt of jobType" [value]="jt?.jobTypeId">{{jt?.jobTypeName}}</option>
-        </select>
+        <mat-form-field class="example-full-width">
+          <mat-label>Job Type</mat-label>
+          <mat-select formControlName="jobType" (selectionChange)="loadTradePersonByJobType($event)">
+            <mat-option *ngFor="let jt of allJobTypes" [value]="jt?.id">{{jt?.jobType}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
       </div>
       <div class="input_field">
-        <label for="tradePerson">Trade Person</label>
-        <select id="tradePerson">
-          <option *ngFor="let tp of tradePerson" [value]="tp?.tradepersonId">{{tp?.tradePersonName}}</option>
-        </select>
+        <mat-form-field class="example-full-width">
+          <mat-label>Trade Person</mat-label>
+          <mat-select formControlName="tradePerson">
+            <mat-option *ngFor="let tp of tradePerson" [value]="tp?.tradepersonId">{{tp?.tradePersonName}}</mat-option>
+          </mat-select>
+        </mat-form-field>
       </div>
       <div class="input_field">
-        <textarea placeholder="Your Complaint" id="yourComplaint"></textarea>
+        <mat-form-field class="example-full-width">
+          <mat-label>Complaint</mat-label>
+          <textarea matInput placeholder="Your Complaint" id="yourComplaint"></textarea>
+        </mat-form-field>
       </div>
       <div class="btn">
-        <input type="submit">
+        <button mat-raised-button (click)="submitComplaint();">Submit</button>
       </div>
     </form>
   </div>

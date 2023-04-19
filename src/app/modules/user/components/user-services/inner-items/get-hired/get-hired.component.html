@@ -8,7 +8,7 @@
       <div class="map-outer">
         <mat-label class="label">Get an idea about your nearest service Provider</mat-label>
         <agm-map class="map" [latitude]="userCurrentLatitude" [longitude]="userCurrentLongitude"
-                 [zoom]="zoom">
+                 [zoom]="zoom" (mapClick)="onChooseLocation($event)">
           <agm-marker
             *ngFor="let m of tradePersonList"
             [latitude]="m.lat" [longitude]="m.lng"

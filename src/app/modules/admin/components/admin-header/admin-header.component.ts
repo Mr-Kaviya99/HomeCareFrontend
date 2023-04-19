@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Router} from "@angular/router";
+import {CookieManagerService} from "../../../share/services/cookie/cookie-manager.service";
 
 @Component({
   selector: 'app-admin-header',
@@ -8,7 +10,10 @@ import { Component, OnInit } from '@angular/core';
 export class AdminHeaderComponent implements OnInit {
   navSliderState: boolean = false;
 
-  constructor() {
+  constructor(
+    private router: Router,
+    private cookieManager: CookieManagerService,
+  ) {
   }
 
   ngOnInit(): void {
@@ -18,7 +23,8 @@ export class AdminHeaderComponent implements OnInit {
     this.navSliderState = !this.navSliderState;
   }
 
-  inquiryPopUp($event: MouseEvent) {
-
+  logOut() {
+    this.cookieManager.logout()
+    this.router.navigateByUrl('/security/login');
   }
 }

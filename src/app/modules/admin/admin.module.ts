@@ -19,6 +19,8 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import { AllJobTypeComponent } from './components/admin-dashboard/inner-items/job-type/items/all-job-type/all-job-type.component';
+import { AllTradePersonComponent } from './components/admin-dashboard/inner-items/trade-person/items/all-trade-person/all-trade-person.component';
+import { AllComplaintsComponent } from './components/admin-dashboard/inner-items/complaints/items/all-complaints/all-complaints.component';
 
 
 @NgModule({
@@ -32,7 +34,10 @@ import { AllJobTypeComponent } from './components/admin-dashboard/inner-items/jo
     TradePersonComponent,
     ComplaintsComponent,
     NewJobTypeComponent,
-    AllJobTypeComponent
+    AllJobTypeComponent,
+    AllTradePersonComponent,
+    AllComplaintsComponent,
+
   ],
   imports: [
     CommonModule,
