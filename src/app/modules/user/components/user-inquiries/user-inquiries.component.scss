@@ -1,0 +1,23 @@
+.main-outer {
+  margin: 50px 0;
+  padding-bottom: 20px;
+}
+
+.topic {
+  text-align: center;
+  font-weight: 900;
+  font-size: 36px;
+  line-height: 46px;
+  margin-bottom: 30px;
+}
+
+.expand-outer {
+
+  button {
+    background: var(--orange-color);
+    color: white;
+    border-radius: 100px;
+  }
+}
+
+

@@ -1,0 +1,34 @@
+<div class="main-outer">
+  <div class="table-outer">
+    <table class="table">
+      <thead>
+      <tr>
+        <td><b>User Name</b></td>
+        <td><b>Star count</b></td>
+        <td><b>message</b></td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td class="table-col">
+          <div class="td-inner">
+            bla
+          </div>
+        </td>
+        <td class="table-col">
+          <div class="td-inner">
+            bla
+          </div>
+        </td>
+        <td class="table-col">
+          <div class="td-inner">
+            <mat-icon class="star"
+                      *ngFor="let ratingId of ratingArray;
+     index as i" [id]="'star_'+i" (click)="calculateRating(i+1)">{{ iconStatus(i) }}</mat-icon>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

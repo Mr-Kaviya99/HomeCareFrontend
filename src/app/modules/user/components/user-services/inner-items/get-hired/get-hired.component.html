@@ -1,0 +1,49 @@
+<div class="outer" mat-dialog-content>
+  <div class="header">
+    <div class="header-text">Get Hire bla-bla</div>
+    <mat-icon (click)="close()">close</mat-icon>
+  </div>
+  <div class="row">
+    <div class="col-12 column">
+      <div class="map-outer">
+        <mat-label class="label">Get an idea about your nearest service Provider</mat-label>
+        <agm-map class="map" [latitude]="userCurrentLatitude" [longitude]="userCurrentLongitude"
+                 [zoom]="zoom">
+          <agm-marker
+            *ngFor="let m of tradePersonList"
+            [latitude]="m.lat" [longitude]="m.lng"
+            [label]="m.firstName"
+          >
+          </agm-marker>
+        </agm-map>
+      </div>
+    </div>
+    <div class="col-12 col-md-4 column" *ngFor="let tp of tradePersonList">
+      <div class="trade-person-outer example-full-width" (click)="selectedTradePersonFromList(tp)">
+        <h3 class="name">{{tp.firstName}} {{tp.lastName}}</h3>
+        <p class="email">{{tp.email}}</p>
+        <p class="contact">{{tp.contact}}</p>
+      </div>
+    </div>
+    <hr class="hr" *ngIf="selectedTradePerson">
+    <div class="col-12 column" *ngIf="selectedTradePerson">
+      <mat-label><b>Selected Trade person</b></mat-label>
+    </div>
+    <div class="col-12 col-md-6 column" *ngIf="selectedTradePerson">
+      <div class="trade-person-outer selected example-full-width">
+        <h3 class="name">{{selectedTradePerson?.firstName}} {{selectedTradePerson?.lastName}}</h3>
+        <p class="email">{{selectedTradePerson?.email}}</p>
+        <p class="contact">{{selectedTradePerson?.contact}}</p>
+      </div>
+    </div>
+
+    <div class="col-12 column">
+      <div class="button-outer">
+        <button mat-raised-button class="submit-button"
+                (click)="submitRequest()">
+          Get Hired
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

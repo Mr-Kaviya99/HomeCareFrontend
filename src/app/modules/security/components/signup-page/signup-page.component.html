@@ -1,0 +1,45 @@
+<div class="outer">
+  <div class="inner">
+    <div class="left">
+      <h2 class="login-text">Create your Account here</h2>
+
+      <form style="width: 100%" [formGroup]="userForm">
+
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>First Name</mat-label>
+          <input formControlName="fName" type="text" matInput placeholder="Ex. Hasika">
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Last Name</mat-label>
+          <input formControlName="lName" type="text" matInput placeholder="Ex. Sandaruwan">
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Email</mat-label>
+          <input autocomplete="off" formControlName="email" type="email" matInput placeholder="Ex. hasika@example.com">
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Mobile</mat-label>
+          <input autocomplete="off" formControlName="mobile" type="text" matInput>
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input autocomplete="off" formControlName="password" type="{{passwordState?'password':'text'}}" matInput>
+          <mat-icon class="icon" matSuffix
+                    (click)="passwordState=!passwordState">{{passwordState ? 'visibility_off' : 'visibility'}}</mat-icon>
+
+        </mat-form-field>
+        <button type="button" mat-raised-button [disabled]="userForm.invalid" (click)="signup()"> Signup</button>
+        <p style="text-align: center; margin-top: 15px">OR</p>
+        <button type="button" mat-button routerLink="/security/login"> Already have an Account?</button>
+      </form>
+
+    </div>
+    <div class="right">
+
+    </div>
+  </div>
+</div>

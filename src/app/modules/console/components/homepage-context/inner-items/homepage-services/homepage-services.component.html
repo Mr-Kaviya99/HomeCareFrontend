@@ -1,0 +1,20 @@
+<div class="services">
+  <div class="container">
+    <h3 class="Service-heading">Services</h3>
+    <div class="cards-list">
+      <div class="service-card-outer" *ngFor="let s of services">
+        <div class="card service-card">
+          <div class="service-card-top">
+            <div class="service-img-outer">
+              <img src="{{s?.image}}" alt=""
+                   class="service-image">
+            </div>
+          </div>
+          <div class="service-card-bottom">
+            <h2 class="service-type">{{s?.jobTypeName}}</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

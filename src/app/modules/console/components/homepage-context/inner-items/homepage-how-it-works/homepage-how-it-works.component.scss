@@ -1,0 +1,47 @@
+
+.how-it-works {
+  margin-top: 50px;
+  background: #F2F3F4;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.how-it-works-topic {
+  text-align: center;
+  font-weight: 300;
+  font-size: 32px;
+}
+
+.how-it-works-content-row {
+  margin: 35px 0 0 0;
+}
+
+.how-it-works-col-top {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+  background: black;
+  border-radius: 100px;
+}
+
+.how-it-works-col-top-step {
+  margin: 0 0 0 20px;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.how-it-works-col-bottom {
+  margin-top: 20px;
+}
+
+.how-it-works-col-bottom-desc {
+  font-weight: 400;
+  font-size: 16px;
+  margin: 0;
+}
+

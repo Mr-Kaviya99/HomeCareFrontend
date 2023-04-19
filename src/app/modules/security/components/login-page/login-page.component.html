@@ -1,0 +1,30 @@
+<div class="outer">
+  <div class="inner">
+    <div class="left">
+      <h2 class="login-text">Login to Developers Stack</h2>
+
+      <form style="width: 100%" [formGroup]="loginForm" (ngSubmit)="login()">
+
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Email</mat-label>
+          <input formControlName="email" type="email" matInput placeholder="Ex. tom@example.com">
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input formControlName="password" type="{{passwordState?'password':'text'}}" matInput>
+          <mat-icon class="icon" matSuffix (click)="passwordState=!passwordState">{{passwordState?'visibility_off':'visibility'}}</mat-icon>
+        </mat-form-field>
+
+        <p class="forget-password">
+          <span routerLink="/security/forgot-password">Forgot password?</span>
+        </p>
+        <button mat-raised-button type="submit">Login</button>
+        <p style="text-align: center; margin-top: 15px">OR</p>
+        <button mat-button routerLink="/security/signup" type="button" style="color: white"> Create an Account</button>
+      </form>
+    </div>
+    <div class="right">
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="service-card" id="services">
+  <div class="container">
+    <h3 class="topic">Available Services</h3>
+    <div class="service-card-inner">
+      <div class="cards-wrapper">
+        <div class="item" *ngFor="let s of services">
+          <div class="flex-container">
+            <div class="card-image-outer">
+              <img src="{{s?.image}}"
+                   alt="">
+            </div>
+            <div class="details">
+              <div class="product-name"><h2>{{s?.jobTypeName}}</h2></div>
+              <div class="view-more" (click)="getHired(s?.jobTypeId)">
+                <h3>Hire</h3></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

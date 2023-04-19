@@ -1,0 +1,64 @@
+<div class="main-outer">
+  <div class="col-one">
+    <div class="main-header">
+      <div class="logo-inner" routerLink="/">
+        <h2 class="home-care-logo">HOMECARE</h2>
+      </div>
+    </div>
+  </div>
+  <div class="col-three">
+    <div class="inquiry-outer">
+      <button class="inquiry text-button" routerLink="/trade-person/main-page" mat-flat-button>Login as Trade Person
+      </button>
+      <!--      <div (click)="inquiryPopUp($event)" class="inquiry icon-button">-->
+      <!--        <mat-icon>login</mat-icon>-->
+      <!--      </div>-->
+    </div>
+    <div (click)="manageNavBar()" class="mat-divider-field">
+      <mat-icon class="menu">menu</mat-icon>
+    </div>
+  </div>
+
+</div>
+<div *ngIf="navSliderState" class="main-nav-slider">
+  <div class="main-nav-slider-inner">
+    <div class="logo-outer-1">
+      <button class="nav-button" (click)="manageNavBar()">
+        <mat-icon class="back-arrow">menu_open</mat-icon>
+      </button>
+    </div>
+    <div class="content-outer">
+      <ul class="nav-list">
+        <!--        <li (click)="manageNavBar()" routerLinkActive="activated-route">-->
+        <!--          All Services-->
+        <!--        </li>-->
+        <!--        <li (click)="manageNavBar()" routerLink="/console/home" routerLinkActive="activated-route">-->
+        <!--          Inquiries-->
+        <!--        </li>-->
+        <!--        <li (click)="manageNavBar()" routerLink="/console/home" routerLinkActive="activated-route">-->
+        <!--          Services-->
+        <!--        </li>-->
+
+        <li (click)="manageNavBar()" routerLink="/console/home" routerLinkActive="activated-route">
+          Home
+        </li>
+        <li (click)="manageNavBar()" routerLink="/user" routerLinkActive="activated-route">
+          User Area
+        </li>
+        <li (click)="complaintPopUp()" routerLinkActive="activated-route">
+          Complaint
+        </li>
+        <li (click)="logOut()" routerLinkActive="activated-route">
+          Logout
+        </li>
+      </ul>
+    </div>
+    <div class="inquiry-button-outer">
+      <button (click)="inquiryPopUp($event)" class="inquiry" mat-flat-button>Login as Trade Person</button>
+    </div>
+  </div>
+  <div class="admin-login">
+    <p class="warn-text">If you are admin please login here.</p>
+    <p class="admin-text" routerLink="/admin/verification">Login as an Admin</p>
+  </div>
+</div>

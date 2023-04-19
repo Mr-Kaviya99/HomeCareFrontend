@@ -1,0 +1,108 @@
+.main-outer {
+  width: 100%;
+  height: 400px;
+  padding: 0px;
+  background-image: url("https://github.com/Mr-Kaviya99/HomeCare/blob/master/img/Tradesperson_Landing_Page.png?raw=true");
+  background-size: cover;
+  background-position: center;
+
+  .outer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    height: 400px;
+    background-image: linear-gradient(to top, #1A2238, transparent);
+
+    .wrapper {
+      position: absolute;
+      bottom: 40px;
+      left: 40px;
+
+      .header-text {
+        color: var(--font-color);
+        font-size: 35px;
+        font-weight: 400;
+        line-height: 30px;
+        z-index: 23;
+      }
+
+      .desc {
+        line-height: 30px;
+        width: 80%;
+        color: var(--font-color);
+        font-size: 18px;
+        font-weight: 400;
+        text-align: justify;
+        z-index: 34;
+      }
+    }
+  }
+}
+
+
+@media only screen and (max-width: 879px) {
+  .desc {
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .header-text {
+    font-size: 30px;
+    line-height: 25px;
+  }
+}
+
+//////////////////////////////////////////
+.form-outer {
+  background-color: white;
+  padding: 20px;
+}
+
+.example-full-width {
+  width: 100% !important;
+}
+
+.already-have-account {
+  button {
+    border-radius: 100px;
+    background-color: var(--blue-color);
+    color: white;
+    font-weight: 400;
+  }
+}
+
+.button-outer {
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+
+  .next-button {
+    background: var(--blue-color);
+    border-radius: 20px;
+    color: #FFFFFF;
+    margin: 0 0 0 5px;
+  }
+
+  .cancel-button {
+    background: var(--navy-blue-color);
+    border-radius: 20px;
+    color: #FFFFFF;
+    margin: 0 5px;
+  }
+}
+
+.label {
+  margin-bottom: 18px;
+}
+
+.map-outer {
+  padding: 8px 0 18px 0;
+}
+
+.map {
+  height: 50vh;
+}

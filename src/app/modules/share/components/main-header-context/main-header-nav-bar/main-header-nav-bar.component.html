@@ -1,0 +1,62 @@
+<div class="main-outer">
+  <div class="col-one">
+    <div class="main-header">
+      <div class="logo-inner" routerLink="/">
+        <h2 class="home-care-logo">HOMECARE</h2>
+      </div>
+    </div>
+  </div>
+  <div class="col-two">
+    <ul>
+      <li routerLink="/console/home" routerLinkActive="active-route"><a>Home</a></li>
+      <li routerLink="/console/about" routerLinkActive="active-route"><a>About</a></li>
+      <li routerLink="/console/service" routerLinkActive="active-route"><a>Service</a></li>
+      <li routerLink="/console/faq" routerLinkActive="active-route"><a>FAQ</a></li>
+      <li routerLink="/console/contact" routerLinkActive="active-route"><a>Contact</a></li>
+    </ul>
+  </div>
+  <div class="col-three">
+    <div class="inquiry-outer">
+      <button class="inquiry text-button" routerLink="/security/login" mat-flat-button>Login</button>
+    </div>
+    <div (click)="manageNavBar()" class="mat-divider-field">
+      <mat-icon class="menu">menu</mat-icon>
+    </div>
+  </div>
+</div>
+<div *ngIf="navSliderState" class="main-nav-slider">
+  <div class="main-nav-slider-inner">
+    <div class="logo-outer-1">
+      <div class="logo-inner" routerLink="/">
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/taste-mates-823ad.appspot.com/o/logo%2FLogo.png?alt=media&token=13815b91-6f9a-40b2-8cc4-a5c1950d9f65"
+          alt="">
+      </div>
+      <button class="nav-button" (click)="manageNavBar()">
+        <mat-icon class="back-arrow">menu_open</mat-icon>
+      </button>
+    </div>
+    <div class="content-outer">
+      <ul class="nav-list">
+        <li (click)="manageNavBar()" routerLink="/console/home" routerLinkActive="activated-route">
+          Home
+        </li>
+        <li (click)="manageNavBar()" routerLink="/console/home" routerLinkActive="activated-route">
+          About
+        </li>
+        <li (click)="manageNavBar()" routerLink="/console/home" routerLinkActive="activated-route">
+          Services
+        </li>
+        <li (click)="manageNavBar()" routerLink="/console/home" routerLinkActive="activated-route">
+          FAQ
+        </li>
+        <li (click)="manageNavBar()" routerLink="/console/home" routerLinkActive="activated-route">
+          Contact
+        </li>
+      </ul>
+    </div>
+    <div class="inquiry-button-outer">
+      <button routerLink="/security/login"  class="inquiry" mat-flat-button>Login</button>
+    </div>
+  </div>
+</div>

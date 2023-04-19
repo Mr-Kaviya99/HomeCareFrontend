@@ -1,0 +1,23 @@
+<div class="main-outer">
+  <h2 class="topic">Inquiries</h2>
+  <div class="container">
+    <mat-accordion>
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Job Type
+          </mat-panel-title>
+          <mat-panel-description>
+            TradePerson Name
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="expand-outer">
+          <p>Email: email</p>
+          <p>Contact: contactNo</p>
+          <button mat-raised-button (click)="reviewPopUp('id')">Place a review</button>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>

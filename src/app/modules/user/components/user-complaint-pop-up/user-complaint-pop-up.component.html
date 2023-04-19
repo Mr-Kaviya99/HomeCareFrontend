@@ -1,0 +1,27 @@
+<div class="create-complaint">
+  <div class="wrapper">
+    <mat-icon class="close-icon" (click)="close()">close</mat-icon>
+    <h2>Any Complaint?</h2>
+    <div id="error_message_complaint"></div>
+    <form id="myComplaintForm" onsubmit="return validate();">
+      <div class="input_field">
+        <label for="jobType">JobType</label>
+        <select id="jobType">
+          <option *ngFor="let jt of jobType" [value]="jt?.jobTypeId">{{jt?.jobTypeName}}</option>
+        </select>
+      </div>
+      <div class="input_field">
+        <label for="tradePerson">Trade Person</label>
+        <select id="tradePerson">
+          <option *ngFor="let tp of tradePerson" [value]="tp?.tradepersonId">{{tp?.tradePersonName}}</option>
+        </select>
+      </div>
+      <div class="input_field">
+        <textarea placeholder="Your Complaint" id="yourComplaint"></textarea>
+      </div>
+      <div class="btn">
+        <input type="submit">
+      </div>
+    </form>
+  </div>
+</div>

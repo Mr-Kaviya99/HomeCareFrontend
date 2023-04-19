@@ -1,0 +1,50 @@
+
+.get-start-trade-person {
+  background: url("https://github.com/Mr-Kaviya99/HomeCare/blob/master/img/Last_Page.png?raw=true") no-repeat center;
+  background-size: cover;
+  padding-bottom: 20vh;
+}
+
+.get-start-trade-person-inner {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.get-start-trade-person:hover .get-start-trade-person-topic {
+  text-shadow: 1px 20px 20px rgba(143, 188, 143, 0.59);
+}
+
+.get-start-trade-person-topic {
+  margin-top: 190px;
+  font-weight: 900;
+  font-size: 36px;
+  text-align: center;
+  color: white;
+  width: 600px;
+}
+
+.get-start-trade-person-button-outer {
+  margin-top: 70px;
+}
+
+.get-start-trade-person-button {
+  padding: 7px 35px;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  border-radius: 100px;
+  font-size: 24px;
+}
+
+.get-start-trade-person-button:hover {
+  color: white;
+  cursor: pointer;
+}
+
+
+@media screen and (max-width: 625px) {
+  .get-start-trade-person-topic {
+    width: 100% !important;
+  }
+}

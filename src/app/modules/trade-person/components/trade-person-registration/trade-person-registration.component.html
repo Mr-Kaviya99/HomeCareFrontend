@@ -1,0 +1,83 @@
+<div class="main-outer">
+  <div class="outer">
+    <div class="wrapper">
+      <h1 class="header-text">Trade Person Registration</h1>
+      <div class="already-have-account">
+        <button routerLink="/developer/verification" mat-raised-button>Already have an account</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="form-outer">
+  <div class="container">
+    <form action="" [formGroup]="tradePersonForm" #f="ngForm">
+      <div class="row">
+        <div class="col-12 col-sm-6 col-md-4 column">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Job Type</mat-label>
+            <mat-select formControlName="jobType">
+              <mat-option value="false">Non-Employee</mat-option>
+              <mat-option value="true">Employee</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 column">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Gender</mat-label>
+            <mat-select formControlName="gender">
+              <mat-option value="MALE">Male</mat-option>
+              <mat-option value="FEMALE">Female</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="col-12 col-sm-6 col-md-4 column">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>NIC / Passport</mat-label>
+            <input matInput formControlName="nic">
+          </mat-form-field>
+        </div>
+        <div class="col-12 column">
+          <div class="map-outer">
+            <mat-label class="label">Select your location</mat-label>
+            <agm-map matTooltip="please select your exact location" class="map" [latitude]="latitude"
+                     [longitude]="longitude" [zoom]="zoom" (mapClick)="onChooseLocation($event)">
+              <agm-marker
+                [latitude]="latitude"
+                [longitude]="longitude"
+                *ngIf="locationChosen "
+              ></agm-marker>
+            </agm-map>
+          </div>
+
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 column">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Longitude</mat-label>
+            <input matInput type="text" formControlName="longitude" [ngModel]="longitude">
+          </mat-form-field>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 column">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Latitude</mat-label>
+            <input matInput type="text" formControlName="latitude" [ngModel]="latitude">
+          </mat-form-field>
+        </div>
+
+        <div class="col-12  column">
+          <div class="button-outer">
+            <button mat-raised-button (click)="clearForm(f)" class="cancel-button">Clear the form</button>
+            <button mat-raised-button
+                    class="next-button" routerLink="/trade-person/dashboard">
+              Submit Data
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+</div>
+<!--(click)="applyTradePerson(f)"-->
+<!--[disabled]="tradePersonForm.invalid"-->

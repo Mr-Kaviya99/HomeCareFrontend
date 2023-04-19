@@ -1,0 +1,38 @@
+.main-outer {
+  padding: 20px;
+  margin: 30px 0;
+}
+
+.table {
+  margin-bottom: 0;
+
+  thead {
+    height: fit-content;
+    background: #BDC3C7;
+
+    .td:nth-child(1) {
+      width: fit-content;
+    }
+  }
+
+  tbody {
+    tr:hover {
+      background: #ECF0F1;
+    }
+  }
+}
+
+.table-col {
+  padding: 0 5px;
+  vertical-align: center;
+}
+
+
+.td-inner {
+  min-height: 51px;
+  display: flex;
+  align-items: center;
+}
+.star{
+  color: #ff1133;
+}
