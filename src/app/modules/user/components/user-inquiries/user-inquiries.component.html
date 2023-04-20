@@ -3,19 +3,19 @@
   <div class="container">
     <mat-accordion>
       <mat-expansion-panel (opened)="panelOpenState = true"
-                           (closed)="panelOpenState = false">
+                           (closed)="panelOpenState = false" *ngFor="let srd of serviceReqDetails">
         <mat-expansion-panel-header>
           <mat-panel-title>
-            Job Type
+            {{srd?.jobType}}
           </mat-panel-title>
           <mat-panel-description>
-            TradePerson Name
+            {{srd?.name}} {{srd?.name2}}
           </mat-panel-description>
         </mat-expansion-panel-header>
         <div class="expand-outer">
-          <p>Email: email</p>
-          <p>Contact: contactNo</p>
-          <button mat-raised-button (click)="reviewPopUp('id')">Place a review</button>
+          <p><span class="type">Email</span> : {{srd?.email}}</p>
+          <p><span class="type">Contact</span> : {{srd?.mobile}}</p>
+          <button class="review-button" mat-raised-button (click)="reviewPopUp(srd?.id)">Make a review</button>
         </div>
       </mat-expansion-panel>
     </mat-accordion>

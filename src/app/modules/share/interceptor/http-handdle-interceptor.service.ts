@@ -14,12 +14,10 @@ export class HttpHandlerInterceptor implements HttpInterceptor {
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    console.log('Interceptor Enter');
     this._loadingService.mainLoader.next(true);
     return next.handle(request).pipe(
       finalize(() => {
         this._loadingService.mainLoader.next(false);
-        console.log('Interceptor Close');
       })
     );
   }

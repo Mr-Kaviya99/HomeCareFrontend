@@ -22,6 +22,7 @@ import { ContactPageBottomContentComponent } from './components/contact-page-con
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import {MatIconModule} from "@angular/material/icon";
     CarouselModule,
     MatFormFieldModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    NgbModule
   ]
 })
 export class ConsoleModule {

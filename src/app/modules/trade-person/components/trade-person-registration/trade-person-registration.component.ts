@@ -92,7 +92,7 @@ export class TradePersonRegistrationComponent implements OnInit {
       if (response.code == 200) {
         this.cookieManager.logout()
         this.router.navigateByUrl('/security/login');
-        this.snackBarService.openSuccessSnackBar('Success!', 'Close');
+        this.snackBarService.openSuccessSnackBar('Success! login again', 'Close');
         this.refreshForm(form);
       }
     }, error => {

@@ -15,43 +15,15 @@ import {UserService} from "../../../../../share/services/user/user.service";
 export class GetHiredComponent implements OnInit {
   userId: any;
   userDetails: any;
-
   selectedJobTypeId: any;
-  latitude = 51.55633890314539;
-  longitude = 0.0749181794395648;
+  latitude: any;
+  longitude: any;
   zoom: number = 10;
   locationChosen = false;
-  userCurrentLongitude: any;
-  userCurrentLatitude: any;
 
   selectedTradePerson: any;
 
-  tradePersonList: any = [
-    {
-      firstName: 'Ridmi',
-      lastName: 'Jayamanna',
-      email: 'ridmi@gmail.com',
-      contact: '0771234567',
-      lat: 51.5475728927691,
-      lng: 0.06496181957628355,
-    },
-    {
-      firstName: 'James',
-      lastName: 'Bond',
-      email: 'james@gmail.com',
-      contact: '0772345678',
-      lat: 51.52085082770725,
-      lng: 0.1906663102236017,
-    },
-    {
-      firstName: 'Jayan',
-      lastName: 'Bhanuka',
-      email: 'jayan@gmail.com',
-      contact: '0773456789',
-      lat: 51.620478117464266,
-      lng: 0.07565318766500795,
-    }
-  ]
+  tradePersonList: any = [];
 
   constructor(
     public dialogRef: MatDialogRef<GetHiredComponent>,
@@ -67,22 +39,35 @@ export class GetHiredComponent implements OnInit {
 
   ngOnInit(): void {
     this.selectedJobTypeId = this.data?.id;
-
-
     this.locationService.getPosition().then(pos => {
-      this.userCurrentLatitude = pos.lat;
-      this.userCurrentLongitude = pos.lng;
+      this.latitude = pos.lat;
+      this.longitude = pos.lng;
+      this.loadTradePersonsByJobTypeIdAndLngAndLat();
     });
 
-    this.loadTradePersonsByJobTypeIdAndLngAndLat();
     this.loadUserData();
 
   }
 
   loadTradePersonsByJobTypeIdAndLngAndLat() {
-    this.tradePersonService.getTradePersonsByJobTypeAndLngAndLat(this.selectedJobTypeId, this.latitude, this.longitude).subscribe(response => {
-      this.tradePersonList = response;
+    this.tradePersonService.getTradePersonsByJobTypeAndLngAndLat(
+      this.selectedJobTypeId,
+      this.latitude,
+      this.longitude).subscribe(response => {
+      for (let tp of response.data) {
+        this.tradePersonToArray(tp?.id)
+      }
     }, error => {
+      return;
+    })
+  }
+
+  tradePersonToArray(tradePersonId: any) {
+    this.tradePersonService.getTradePersonAllData(tradePersonId).subscribe(response => {
+      console.log(response.data[0])
+      this.tradePersonList.push(response.data[0])
+    }, error => {
+      this.snackBarService.openErrorSnackBar('Something went wrong!', 'close')
       return;
     })
   }
@@ -93,8 +78,10 @@ export class GetHiredComponent implements OnInit {
 
   submitRequest() {
     this.inquiryService.saveInquiry(this.userId, this.selectedTradePerson.id, this.selectedJobTypeId).subscribe(response => {
-      this.tradePersonList = response;
-      this.snackBarService.openSuccessSnackBar('Success', 'close')
+      if (response.code == 200) {
+        this.snackBarService.openSuccessSnackBar('Success!', 'Close');
+        this.close()
+      }
     }, error => {
       this.snackBarService.openErrorSnackBar('Something went wrong!', 'close')
       return;
@@ -103,13 +90,15 @@ export class GetHiredComponent implements OnInit {
 
   selectedTradePersonFromList(tradePerson: any) {
     this.selectedTradePerson = tradePerson;
-    console.log(this.selectedTradePerson)
   }
 
   onChooseLocation(event: any) {
+    this.tradePersonList = [];
     this.latitude = event.coords.lat;
     this.longitude = event.coords.lng;
     this.locationChosen = true;
+
+    this.loadTradePersonsByJobTypeIdAndLngAndLat();
   }
 
   loadUserData() {

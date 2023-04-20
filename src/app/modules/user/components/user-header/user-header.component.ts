@@ -31,12 +31,6 @@ export class UserHeaderComponent implements OnInit {
     const popup = this.matDialog.open(UserComplaintPopUpComponent, {
       width: '400px'
     });
-    popup.afterClosed().subscribe(data => {
-      console.log(data)
-      if (data) {
-
-      }
-    })
   }
 
   logOut() {
@@ -45,6 +39,6 @@ export class UserHeaderComponent implements OnInit {
   }
 
   login($event: MouseEvent) {
-    this.router.navigateByUrl('/trade-person/dashboard');
+    this.router.navigateByUrl('/trade-person/verification');
   }
 }

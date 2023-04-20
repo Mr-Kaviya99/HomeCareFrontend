@@ -17,14 +17,14 @@
         <mat-form-field class="example-full-width">
           <mat-label>Trade Person</mat-label>
           <mat-select formControlName="tradePerson">
-            <mat-option *ngFor="let tp of tradePerson" [value]="tp?.tradepersonId">{{tp?.tradePersonName}}</mat-option>
+            <mat-option *ngFor="let tp of tradePerson" [value]="tp?.id">{{tp?.name}} {{tp?.name2}}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
       <div class="input_field">
         <mat-form-field class="example-full-width">
           <mat-label>Complaint</mat-label>
-          <textarea matInput placeholder="Your Complaint" id="yourComplaint"></textarea>
+          <textarea matInput placeholder="Your Complaint" formControlName="complaint"></textarea>
         </mat-form-field>
       </div>
       <div class="btn">

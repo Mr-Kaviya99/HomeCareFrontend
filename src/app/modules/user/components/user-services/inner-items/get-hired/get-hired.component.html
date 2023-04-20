@@ -7,22 +7,21 @@
     <div class="col-12 column">
       <div class="map-outer">
         <mat-label class="label">Get an idea about your nearest service Provider</mat-label>
-        <agm-map class="map" [latitude]="userCurrentLatitude" [longitude]="userCurrentLongitude"
+        <agm-map class="map" [latitude]="latitude" [longitude]="longitude"
                  [zoom]="zoom" (mapClick)="onChooseLocation($event)">
           <agm-marker
             *ngFor="let m of tradePersonList"
-            [latitude]="m.lat" [longitude]="m.lng"
-            [label]="m.firstName"
-          >
+            [latitude]="m.latitude" [longitude]="m.longitude"
+            [label]="m.name">
           </agm-marker>
         </agm-map>
       </div>
     </div>
     <div class="col-12 col-md-4 column" *ngFor="let tp of tradePersonList">
       <div class="trade-person-outer example-full-width" (click)="selectedTradePersonFromList(tp)">
-        <h3 class="name">{{tp.firstName}} {{tp.lastName}}</h3>
+        <h3 class="name">{{tp.name}} {{tp.name2}}</h3>
         <p class="email">{{tp.email}}</p>
-        <p class="contact">{{tp.contact}}</p>
+        <p class="contact">{{tp.mobile}}</p>
       </div>
     </div>
     <hr class="hr" *ngIf="selectedTradePerson">
@@ -31,9 +30,9 @@
     </div>
     <div class="col-12 col-md-6 column" *ngIf="selectedTradePerson">
       <div class="trade-person-outer selected example-full-width">
-        <h3 class="name">{{selectedTradePerson?.firstName}} {{selectedTradePerson?.lastName}}</h3>
+        <h3 class="name">{{selectedTradePerson?.name}} {{selectedTradePerson?.name2}}</h3>
         <p class="email">{{selectedTradePerson?.email}}</p>
-        <p class="contact">{{selectedTradePerson?.contact}}</p>
+        <p class="contact">{{selectedTradePerson?.mobile}}</p>
       </div>
     </div>
 

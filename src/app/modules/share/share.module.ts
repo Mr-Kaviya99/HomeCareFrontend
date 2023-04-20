@@ -30,7 +30,8 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
   ],
   exports: [
     MainFooterComponent,
-    MainHeaderContextComponent
+    MainHeaderContextComponent,
+    MainLoadingComponent
   ],
   imports: [
     CommonModule,

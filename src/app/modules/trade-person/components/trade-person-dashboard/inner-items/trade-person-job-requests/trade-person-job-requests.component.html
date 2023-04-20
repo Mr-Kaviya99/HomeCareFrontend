@@ -7,43 +7,37 @@
         <td><b>User Name</b></td>
         <td><b>User email</b></td>
         <td><b>User contact</b></td>
-        <td><b>Accepted State</b></td>
-        <td><b>Response</b></td>
+        <!--        <td><b>Response</b></td>-->
       </tr>
       </thead>
       <tbody>
-      <tr>
+      <tr *ngFor="let srd of serviceReqDetails">
         <td class="table-col">
           <div class="td-inner">
-            bla
+            {{srd?.jobType}}
           </div>
         </td>
         <td class="table-col">
           <div class="td-inner">
-            bla
+            {{srd?.name}} {{srd?.name2}}
           </div>
         </td>
         <td class="table-col">
           <div class="td-inner">
-            bla
+            {{srd?.email}}
           </div>
         </td>
         <td class="table-col">
           <div class="td-inner">
-            bla
+            {{srd?.mobile}}
           </div>
         </td>
-        <td class="table-col">
-          <div class="td-inner">
-            bla
-          </div>
-        </td>
-        <td class="table-col">
-          <div class="td-inner">
-            <button mat-raised-button class="button accept">Accept</button>
-            <button mat-raised-button class="button reject">Reject</button>
-          </div>
-        </td>
+        <!--        <td class="table-col">-->
+        <!--          <div class="td-inner">-->
+        <!--            <button mat-raised-button class="button accept">Accept</button>-->
+        <!--            <button mat-raised-button class="button reject">Reject</button>-->
+        <!--          </div>-->
+        <!--        </td>-->
       </tr>
       </tbody>
     </table>

@@ -66,7 +66,7 @@ export class UserComplaintPopUpComponent implements OnInit {
   loadTradePersonByJobType(event: any) {
     this.tradePersonService.getAllTradePersonsByJobTypeId(event.value).subscribe(response => {
       console.log(response)
-      this.tradePerson = response;
+      this.tradePerson = response.data;
     }, error => {
       this.snackBarService.openErrorSnackBar('Something went wrong!', 'Close');
     })
@@ -78,6 +78,7 @@ export class UserComplaintPopUpComponent implements OnInit {
     let complaint = this.complaintForm.get('complaint')?.value!;
 
     this.complaintService.newComplaint(this.userId, jobType, tradePerson, complaint).subscribe(response => {
+      console.log(response)
       if (response.code == 200) {
         this.snackBarService.openSuccessSnackBar('Success!', 'Close');
         this.close()

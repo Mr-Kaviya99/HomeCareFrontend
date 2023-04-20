@@ -18,6 +18,9 @@ import {
 import {
   TradePersonComplaintsComponent
 } from "./components/trade-person-dashboard/inner-items/trade-person-complaints/trade-person-complaints.component";
+import {
+  TradePersonVerificationPoolComponent
+} from "./components/trade-person-verification-pool/trade-person-verification-pool.component";
 
 const routes: Routes = [
   {
@@ -25,6 +28,7 @@ const routes: Routes = [
       {path: '', redirectTo: '', pathMatch: "full"},
       {path: 'main-page', component: TradePersonMainPageComponent},
       {path: 'registration', component: TradePersonRegistrationComponent},
+      {path: 'verification', component: TradePersonVerificationPoolComponent},
       {
         path: 'dashboard', component: TradePersonDashboardComponent, children: [
           {path: '', redirectTo: 'my-profile', pathMatch: "full"},

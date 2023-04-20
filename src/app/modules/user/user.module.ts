@@ -21,6 +21,7 @@ import {MatTooltipModule} from "@angular/material/tooltip";
 import {MatSelectModule} from "@angular/material/select";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
+    NgbModule
   ]
 })
 export class UserModule {

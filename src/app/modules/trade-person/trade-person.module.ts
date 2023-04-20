@@ -46,7 +46,7 @@ import {NgxStarRatingModule} from "ngx-star-rating";
     TradePersonJobRequestsComponent,
     TradePersonReviewsComponent,
     TradePersonComplaintsComponent,
-    TradePersonVerificationPoolComponent
+    TradePersonVerificationPoolComponent,
   ],
   imports: [
     CommonModule,

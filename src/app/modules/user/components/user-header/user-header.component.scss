@@ -55,7 +55,7 @@
   padding: 0 25px;
   background: var(--green-color);
   color: #FFFFFF;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 500;
 }
 
@@ -192,13 +192,13 @@
   list-style: none;
 
   li {
+    margin-top: 20px;
     display: flex;
     align-items: center;
-    /*  padding: 5px 0 5px 5px;*/
     padding: 10px 0 10px 10px;
     border-left: 5px solid transparent;
     color: black;
-    font-size: 18px;
+    font-size: 20px;
   }
 
   li:hover {

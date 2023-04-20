@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
+import {CookieManagerService} from "../../../share/services/cookie/cookie-manager.service";
+import {UserService} from "../../../share/services/user/user.service";
+import {SnackBarService} from "../../../share/services/snack-bar/snack-bar.service";
 
 @Component({
   selector: 'app-admin-verification-pool',
@@ -9,11 +12,32 @@ import {Router} from "@angular/router";
 export class AdminVerificationPoolComponent implements OnInit {
 
   constructor(
-    private router:Router
-  ) { }
+    private router: Router,
+    private cookieManager: CookieManagerService,
+    private userService: UserService,
+    private snackBarService: SnackBarService,
+  ) {
+  }
 
   ngOnInit(): void {
-    this.router.navigateByUrl('/admin/dashboard');
+    this.check()
   }
+
+  check() {
+    if (this.cookieManager.tokenIsExists('token')) {
+      this.userService.getUserData().subscribe(response => {
+        this.cookieManager.setPersonalData(response.data);
+        if (response.data.role === 'admin') {
+          this.router.navigateByUrl('/admin/dashboard');
+        } else {
+          this.router.navigateByUrl('/security/login');
+          this.snackBarService.openWarningSnackBar('You are not an Admin! please aware of this.', 'close')
+        }
+      })
+    } else {
+      this.router.navigateByUrl('/security/login');
+    }
+  }
+
 
 }

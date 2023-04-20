@@ -5,24 +5,24 @@
       <tr>
         <td><b>Job Type</b></td>
         <td><b>Trade Person</b></td>
-        <td><b>Response</b></td>
+        <td><b>Complaint</b></td>
       </tr>
       </thead>
       <tbody>
-      <tr>
+      <tr *ngFor="let tpc of tradePersonComplaints">
         <td class="table-col">
           <div class="td-inner">
-            bla
+            {{tpc?.jobType}}
           </div>
         </td>
         <td class="table-col">
           <div class="td-inner">
-            bla
+            {{tpc?.name}} {{tpc?.name2}}
           </div>
         </td>
         <td class="table-col">
           <div class="td-inner">
-            bla
+            {{tpc?.complaint}}
           </div>
         </td>
       </tr>

@@ -1,17 +1,22 @@
-<div class="outer" mat-dialog-content>
-  <div class="header">
-    <div class="header-text">Get Hire bla-bla</div>
-    <mat-icon (click)="close()">close</mat-icon>
-  </div>
-  <div class="row">
-
-    <div class="col-12 column">
-      <div class="button-outer">
-        <button mat-raised-button class="submit-button"
-                (click)="submitReview()">
-          Get Hired
-        </button>
+<div class="create-complaint">
+  <div class="wrapper">
+    <mat-icon class="close-icon" (click)="close()">close</mat-icon>
+    <h2>Make a Review</h2>
+    <div id="error_message_complaint"></div>
+    <form action="" [formGroup]="reviewForm" #f="ngForm">
+      <div class="input_field">
+        <mat-label class="label">Star Count</mat-label>
+        <ngb-rating [max]="5" formControlName="starRating" class="stars"></ngb-rating>
       </div>
-    </div>
+      <div class="input_field">
+        <mat-form-field class="example-full-width">
+          <mat-label>Complaint</mat-label>
+          <textarea matInput placeholder="Your Comment" formControlName="comment"></textarea>
+        </mat-form-field>
+      </div>
+      <div class="btn">
+        <button mat-raised-button (click)="submitReview()">Submit</button>
+      </div>
+    </form>
   </div>
 </div>

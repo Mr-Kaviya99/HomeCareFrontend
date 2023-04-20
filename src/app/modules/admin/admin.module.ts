@@ -21,6 +21,7 @@ import {MatInputModule} from "@angular/material/input";
 import { AllJobTypeComponent } from './components/admin-dashboard/inner-items/job-type/items/all-job-type/all-job-type.component';
 import { AllTradePersonComponent } from './components/admin-dashboard/inner-items/trade-person/items/all-trade-person/all-trade-person.component';
 import { AllComplaintsComponent } from './components/admin-dashboard/inner-items/complaints/items/all-complaints/all-complaints.component';
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 
 @NgModule({
@@ -39,16 +40,17 @@ import { AllComplaintsComponent } from './components/admin-dashboard/inner-items
     AllComplaintsComponent,
 
   ],
-  imports: [
-    CommonModule,
-    AdminRoutingModule,
-    MatIconModule,
-    MatButtonModule,
-    ShareModule,
-    MatTabsModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule
-  ]
+    imports: [
+        CommonModule,
+        AdminRoutingModule,
+        MatIconModule,
+        MatButtonModule,
+        ShareModule,
+        MatTabsModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatTooltipModule
+    ]
 })
 export class AdminModule { }

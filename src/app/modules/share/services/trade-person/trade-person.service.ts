@@ -14,11 +14,8 @@ export class TradePersonService {
   ) {
   }
 
-  getTradePersonsByJobTypeAndLngAndLat(selectedJobTypeId: any, userCurrentLatitude: any, userCurrentLongitude: any) {
-    console.log(selectedJobTypeId)
-    console.log(userCurrentLatitude)
-    console.log(userCurrentLongitude)
-    return this.http.get<any>(this.url + 'tradePerson/search/{latitude}/{longitude}' + selectedJobTypeId)
+  getTradePersonsByJobTypeAndLngAndLat(selectedJobTypeId: any, userCurrentLatitude: any, userCurrentLongitude: any): Observable<any> {
+    return this.http.get<any>(this.url + `tradePerson/search/${selectedJobTypeId}/${userCurrentLatitude}/${userCurrentLongitude}`)
   }
 
 
@@ -39,5 +36,13 @@ export class TradePersonService {
 
   getAllTradePersons(): Observable<any> {
     return this.http.get<any>(this.url + 'tradePerson')
+  }
+
+  getTradePersonByUserId(user_id: any) {
+    return this.http.get<any>(this.url + 'tradePerson/searchUser/' + user_id)
+  }
+
+  getTradePersonAllData(tradePersonId: any) {
+    return this.http.get<any>(this.url + 'tradePerson/getAll/' + tradePersonId)
   }
 }
