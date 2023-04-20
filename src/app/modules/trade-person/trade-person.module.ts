@@ -33,6 +33,7 @@ import {AgmCoreModule} from "@agm/core";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import { TradePersonVerificationPoolComponent } from './components/trade-person-verification-pool/trade-person-verification-pool.component';
 import {NgxStarRatingModule} from "ngx-star-rating";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 
 @NgModule({
@@ -64,6 +65,7 @@ import {NgxStarRatingModule} from "ngx-star-rating";
     }),
     MatTooltipModule,
     NgxStarRatingModule,
+    NgbModule
   ]
 })
 export class TradePersonModule {

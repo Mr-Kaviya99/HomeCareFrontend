@@ -1,4 +1,8 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ReviewsService} from "../../../../../share/services/reviews/reviews.service";
+import {SnackBarService} from "../../../../../share/services/snack-bar/snack-bar.service";
+import {CookieManagerService} from "../../../../../share/services/cookie/cookie-manager.service";
+import {TradePersonService} from "../../../../../share/services/trade-person/trade-person.service";
 
 @Component({
   selector: 'app-trade-person-reviews',
@@ -6,30 +10,44 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
   styleUrls: ['./trade-person-reviews.component.scss']
 })
 export class TradePersonReviewsComponent implements OnInit {
-  rating: number = 4;
-  @Output() ratingUpdated = new EventEmitter();
-  totalStar: number = 5;
-  ratingArray: number[] = [];
+  slidesStore: any;
+  user: any;
+  userTradePersonDetails: any;
 
-  constructor() {
+  constructor(
+    private reviewsService: ReviewsService,
+    private snackBarService: SnackBarService,
+    private cookieManager: CookieManagerService,
+    private tradePersonService: TradePersonService,
+  ) {
   }
 
   ngOnInit(): void {
-    for (let index = 0; index < this.totalStar; index++) {
-      this.ratingArray.push(index);
+    if (this.cookieManager.personalDataIsExists()) {
+      try {
+        this.user = JSON.parse(this.cookieManager.getPersonalData());
+        this.loadTradePersonByUserId()
+      } catch (e) {
+        this.snackBarService.openErrorSnackBar('Something went wrong!', 'Close');
+      }
     }
+    this.loadAllReviewsByTradePersonId()
   }
 
-
-  calculateRating(rating: number) {
-    this.ratingUpdated.emit(rating);
+  loadTradePersonByUserId() {
+    this.tradePersonService.getTradePersonByUserId(this.user.user_id).subscribe(response => {
+      this.userTradePersonDetails = response.data[0];
+      this.loadAllReviewsByTradePersonId()
+    }, error => {
+      this.snackBarService.openErrorSnackBar('Something went wrong!', 'Close');
+    })
   }
 
-  iconStatus(index: number) {
-    if (this.rating >= index + 1) {
-      return 'star';
-    } else {
-      return 'star_outlined';
-    }
+  loadAllReviewsByTradePersonId() {
+    this.reviewsService.getAllReviewsByTradePersonId(this.userTradePersonDetails.id).subscribe(response => {
+      this.slidesStore = response.data;
+    }, error => {
+      this.snackBarService.openErrorSnackBar('Something went wrong!', 'Close');
+    })
   }
 }

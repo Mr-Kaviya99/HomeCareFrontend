@@ -7,6 +7,7 @@ import {UserService} from "../../../share/services/user/user.service";
   styleUrls: ['./faq-page-context.component.scss']
 })
 export class FaqPageContextComponent implements OnInit {
+  panelOpenState: boolean = false;
 
   constructor(
     private userService: UserService

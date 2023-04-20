@@ -64,7 +64,6 @@ export class GetHiredComponent implements OnInit {
 
   tradePersonToArray(tradePersonId: any) {
     this.tradePersonService.getTradePersonAllData(tradePersonId).subscribe(response => {
-      console.log(response.data[0])
       this.tradePersonList.push(response.data[0])
     }, error => {
       this.snackBarService.openErrorSnackBar('Something went wrong!', 'close')

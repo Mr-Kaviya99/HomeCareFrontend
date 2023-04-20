@@ -26,4 +26,8 @@ export class ReviewsService {
   getAllReviews(): Observable<any> {
     return this.http.get<any>(this.url + 'review')
   }
+
+  getAllReviewsByTradePersonId(tradePersonId: any): Observable<any> {
+    return this.http.get<any>(this.url + 'review/search/'+tradePersonId)
+  }
 }

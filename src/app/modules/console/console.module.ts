@@ -23,6 +23,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {MatExpansionModule} from "@angular/material/expansion";
 
 
 @NgModule({
@@ -42,17 +43,18 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
         ContactPageTopContentComponent,
         ContactPageBottomContentComponent,
     ],
-  imports: [
-    CommonModule,
-    ConsoleRoutingModule,
-    ShareModule,
-    MatButtonModule,
-    CarouselModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatIconModule,
-    NgbModule
-  ]
+    imports: [
+        CommonModule,
+        ConsoleRoutingModule,
+        ShareModule,
+        MatButtonModule,
+        CarouselModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatIconModule,
+        NgbModule,
+        MatExpansionModule
+    ]
 })
 export class ConsoleModule {
 

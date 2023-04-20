@@ -9,22 +9,20 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
+      <tr *ngFor="let slide of slidesStore">
         <td class="table-col">
           <div class="td-inner">
-            bla
+            {{slide?.name}} {{slide?.name2}}
           </div>
         </td>
         <td class="table-col">
           <div class="td-inner">
-            bla
+            <ngb-rating [max]="5" [readonly]="true" [rate]="slide?.starCount" class="star"></ngb-rating>
           </div>
         </td>
         <td class="table-col">
           <div class="td-inner">
-            <mat-icon class="star"
-                      *ngFor="let ratingId of ratingArray;
-     index as i" [id]="'star_'+i" (click)="calculateRating(i+1)">{{ iconStatus(i) }}</mat-icon>
+            {{slide?.comment}}
           </div>
         </td>
       </tr>

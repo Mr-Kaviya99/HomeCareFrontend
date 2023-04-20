@@ -34,17 +34,11 @@ export class UserServicesComponent implements OnInit {
   }
 
   getHired(id: any) {
-    const popup = this.matDialog.open(GetHiredComponent, {
+    this.matDialog.open(GetHiredComponent, {
       width: '800px',
       data: {
         id: id
       }
     });
-    popup.afterClosed().subscribe(data => {
-      console.log(data)
-      if (data) {
-
-      }
-    })
   }
 }
